@@ -1,26 +1,22 @@
 package com.example.demo.services;
 
 import com.example.demo.entity.Task;
-import com.example.demo.entity.User;
 import com.example.demo.repository.TaskRepository;
-import com.example.demo.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class TaskService {
 
     private final TaskRepository taskRepository;
-    private final UserRepository userRepository;
+    private final KafkaProducer kafkaProducer;
 
     @Autowired
-    public TaskService(TaskRepository taskRepository, UserRepository userRepository) {
+    public TaskService(TaskRepository taskRepository, KafkaProducer kafkaProducer) {
+        this.kafkaProducer = kafkaProducer;
         this.taskRepository = taskRepository;
-        this.userRepository = userRepository;
     }
 
     @Transactional
@@ -31,6 +27,8 @@ public class TaskService {
 
         taskRepository.saveAll(task1);
         taskRepository.saveAll(tasks);
+
+        kafkaProducer.sendMessage("....................................................................................");
 
         return taskRepository.save(task);
     }
