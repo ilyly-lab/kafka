@@ -26,6 +26,16 @@ services:
       SPRING_DATASOURCE_PASSWORD: productPassword
       SPRING_JPA_HIBERNATE_DDL_AUTO: create
 
+  micro2:
+    build:
+      context: .
+      dockerfile: dockerFile_micro2
+    ports:
+      - "8081:8080"
+    depends_on:
+      - kafka
+
+
   kafka:
     image: confluentinc/cp-kafka:latest
     environment:
