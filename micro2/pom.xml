@@ -45,6 +45,11 @@
       <version>3.3.3</version>
       <scope>compile</scope>
     </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.datatype</groupId>
+      <artifactId>jackson-datatype-jsr310</artifactId>
+      <version>2.12.3</version> <!-- Убедитесь, что версия совпадает с версией jackson-databind -->
+    </dependency>
   </dependencies>
 
   <build>

@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.entity.Status;
 import com.example.demo.entity.Task;
 import com.example.demo.repository.TaskRepository;
 import com.example.demo.services.TaskService;
@@ -29,6 +30,11 @@ public class ProductController {
     @GetMapping
     public List<Task> getAllTask() {
         return taskService.getAllTask();
+    }
+
+    @GetMapping("/status")
+    public Status getStatus(Long l) {
+        return taskService.getStatus(l);
     }
 
 }

@@ -1,2 +1,4 @@
 com\example\services\Consumer.class
+com\example\dto\TaskDto.class
 com\example\App.class
+com\example\services\Producer.class
