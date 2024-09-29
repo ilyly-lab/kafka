@@ -1,5 +1,6 @@
 package com.example.services;
 
+import com.example.annotations.LogExecution;
 import com.example.dto.TaskDto;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,7 @@ public class Consumer {
         this.producer = producer;
     }
 
+    @LogExecution
     @KafkaListener(topics = "tasks", groupId = "micro")
     public void consumerMicro(String message) {
         System.out.println("Сообщение прослушано в micro: ");

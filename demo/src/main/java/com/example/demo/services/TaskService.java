@@ -1,5 +1,6 @@
 package com.example.demo.services;
 
+import com.example.annotations.LogExecution;
 import com.example.demo.entity.Status;
 import com.example.demo.entity.Task;
 import com.example.demo.repository.TaskRepository;
@@ -53,6 +54,7 @@ public class TaskService {
 
         return task2;
     }
+    @LogExecution
     @Transactional
     public List<Task> getAllTask() {
 
