@@ -29,10 +29,6 @@ public class NewKafkaServices {
     @LogExecution
     public Task saveTask(Task task) {
 
-        if (task != null) {
-            throw new IllegalArgumentException("Task cannot be null");
-        }
-
         String message = "";
 
         ObjectMapper objectMapper = new ObjectMapper();

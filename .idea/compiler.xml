@@ -9,10 +9,10 @@
         <module name="micro2" />
         <module name="newKafka" />
         <module name="starter" />
-        <module name="demo" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="demo" target="22" />
       <module name="untitled" target="1.8" />
     </bytecodeTargetLevel>
   </component>

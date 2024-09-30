@@ -23,7 +23,7 @@ public class Consumer {
 
     @LogExecution
     @KafkaListener(topics = "tasks", groupId = "micro")
-    public void consumerMicro(String message) {
+    public void consumerMicro2(String message) {
 
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.registerModule(new JavaTimeModule());
