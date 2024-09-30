@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.annotations.LogExecution;
 import com.example.demo.entity.Status;
 import com.example.demo.entity.Task;
 import com.example.demo.repository.TaskRepository;
@@ -28,13 +29,20 @@ public class ProductController {
     }
 
     @GetMapping
+    //@LogExecution
     public List<Task> getAllTask() {
         return taskService.getAllTask();
     }
 
     @GetMapping("/status")
+    //@LogExecution
     public Status getStatus(Long l) {
         return taskService.getStatus(l);
+    }
+
+    @PostMapping("/updateStatus")
+    public void updateTaskStatus(@RequestParam Long taskId, @RequestParam Status status) {
+        taskService.updateTaskStatus(taskId, status);
     }
 
 }

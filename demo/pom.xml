@@ -31,6 +31,12 @@
 		<java.version>22</java.version>
 	</properties>
 	<dependencies>
+
+		<dependency>
+			<groupId>com.example</groupId>
+			<artifactId>starter</artifactId>
+			<version>1.0.0</version>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -65,15 +71,17 @@
 			<version>3.8.0</version>
 		</dependency>
 		<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-autoconfigure</artifactId>
+		<version>3.3.3</version>
+		<scope>compile</scope>
+	</dependency>
+		<dependency>
 			<groupId>com.fasterxml.jackson.datatype</groupId>
 			<artifactId>jackson-datatype-jsr310</artifactId>
 			<version>2.12.3</version> <!-- Убедитесь, что версия совпадает с версией jackson-databind -->
 		</dependency>
-		<dependency>
-			<groupId>com.example</groupId>
-			<artifactId>starter</artifactId>
-			<version>1.0.0</version>
-		</dependency>
+
 
 	</dependencies>
 

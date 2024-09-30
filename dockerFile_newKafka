@@ -1,0 +1,4 @@
+FROM eclipse-temurin:22-jdk-alpine
+WORKDIR /app
+COPY newKafka/target/newKafka-1.0-SNAPSHOT.jar app.jar
+ENTRYPOINT ["java", "-jar", "app.jar"]

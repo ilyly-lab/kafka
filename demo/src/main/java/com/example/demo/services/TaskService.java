@@ -23,7 +23,9 @@ public class TaskService {
         this.taskRepository = taskRepository;
     }
 
+    //@LogExecution
     @Transactional
+    @LogExecution
     public Task saveTask(Task task) {
 
         ObjectMapper objectMapper = new ObjectMapper();
@@ -54,20 +56,23 @@ public class TaskService {
 
         return task2;
     }
-    @LogExecution
+
     @Transactional
     public List<Task> getAllTask() {
 
         return taskRepository.findAllTasksWithAttachmentsAndTasks();
     }
 
+    //@LogExecution
     @Transactional
     public void updateTaskStatus(Long taskId, Status status) {
         taskRepository.updateTaskStatus(taskId, status);
     }
 
     @Transactional
+    //@LogExecution
     public Status getStatus(Long l) {
+        //System.out.println("таска с id: " + l + " передана клиенту");
         return taskRepository.getStatusTaskForId(l);
     }
 }

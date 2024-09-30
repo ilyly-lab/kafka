@@ -14,7 +14,7 @@ services:
   app:
     build:
       context: .
-      dockerfile: dockerFile_demo
+      dockerfile: dockerFile_newKafka
     ports:
       - "8080:8080"
     depends_on:

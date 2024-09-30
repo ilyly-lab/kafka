@@ -1,6 +1,6 @@
 package com.example.demo.services;
 
-import com.example.demo.entity.Status;
+import com.example.annotations.LogExecution;
 import com.example.demo.entity.Task;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,9 +18,10 @@ public class Consumer {
         this.taskService = taskService;
     }
 
+    @LogExecution
     @KafkaListener(topics = "micro2", groupId = "demo")
     public void consumerDemo(String message) {
-        System.out.println("Сообщение считал consumer demo: " + message);
+        //System.out.println("Сообщение считал consumer demo: " + message);
 
         // Создаем ObjectMapper для преобразования строки в объект Task
         ObjectMapper objectMapper = new ObjectMapper();

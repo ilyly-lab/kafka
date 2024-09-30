@@ -1,5 +1,6 @@
 package com.example.services;
 
+import com.example.annotations.LogExecution;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
@@ -16,9 +17,9 @@ public class Producer {
         this.kafkaTemplate = kafkaTemplate;
     }
 
-    public void sendMessage(String message) {
+    @LogExecution
+    public void sendMessageMiro2(String message) {
         kafkaTemplate.send(TOPIC, message);
-        System.out.println("Сообщение записано в топик micro2 ");
     }
 
 }

@@ -24,37 +24,30 @@ public class Consumer {
     @LogExecution
     @KafkaListener(topics = "tasks", groupId = "micro")
     public void consumerMicro(String message) {
-        System.out.println("Сообщение прослушано в micro: ");
 
-        try {
-            Thread.sleep(1000);
+        ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.registerModule(new JavaTimeModule());
 
-            ObjectMapper objectMapper = new ObjectMapper();
-            objectMapper.registerModule(new JavaTimeModule());
+
             try {
 
+                Thread.sleep(1000);
+
                 TaskDto taskDto = objectMapper.readValue(message, TaskDto.class);
-                System.out.println("После десериализации и мфпинга в дто: " + taskDto);
 
                 TaskDto taskDtoNewStatus = updateTaskStatus(taskDto);
-                System.out.println("статус сообщения изменен на рандом: " + taskDto.getStatus());
 
                 String messageUpdateStatus = objectMapper.writeValueAsString(taskDtoNewStatus);
 
-                System.out.println("сообщение с обновленным статусом: " + messageUpdateStatus);
-
-                producer.sendMessage(message);
+                producer.sendMessageMiro2(messageUpdateStatus);
 
             } catch (Exception e) {
+
                 e.printStackTrace();
+
                 System.out.println("Ошибка при десериализации сообщения в Task: " + e.getMessage());
+
             }
-
-
-
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
     }
 
     private TaskDto updateTaskStatus(TaskDto taskDto) {

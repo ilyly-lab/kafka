@@ -1,5 +1,6 @@
 package com.example.demo.services;
 
+import com.example.annotations.LogExecution;
 import com.example.demo.entity.Task;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -22,9 +23,10 @@ public class KafkaProducer {
         this.kafkaTemplate = kafkaTemplate;
     }
 
+    @LogExecution
     public void sendMessage(String message) {
         kafkaTemplate.send(TOPIC, message);
-        System.out.println("Сообщение отправлено в Kafka: ");
+        //System.out.println("Сообщение отправлено в Kafka: ");
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.registerModule(new JavaTimeModule());
         try {
