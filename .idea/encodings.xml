@@ -8,6 +8,8 @@
     <file url="file://$PROJECT_DIR$/newKafka/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/starter/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/starter/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/starterGrafanaAndPrometheus/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/starterGrafanaAndPrometheus/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../newKafka/untitled/src/main/java" charset="UTF-8" />
   </component>
 </project>

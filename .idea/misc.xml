@@ -9,6 +9,7 @@
         <option value="$PROJECT_DIR$/starter/pom.xml" />
         <option value="$PROJECT_DIR$/newKafka/pom.xml" />
         <option value="$PROJECT_DIR$/../newKafka/untitled/pom.xml" />
+        <option value="$PROJECT_DIR$/starterGrafanaAndPrometheus/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
